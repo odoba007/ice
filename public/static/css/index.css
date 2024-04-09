@@ -1,0 +1,179 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.sign-in-form{
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    max-width: 440px;
+    width: calc(100% - 40px);
+    padding: 44px;
+    margin-bottom: 28px;
+    background-color: #fff;
+    min-width: 320px;
+    min-height: 280px;
+    overflow: hidden;
+}
+
+.brand-section{
+    width: 100%;
+}
+
+.margin{
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.link a{
+    color: #006788;
+    text-decoration: none;
+}
+
+form input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 6px 10px;
+    margin-top: -10px;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+    height: 36px;
+    outline: none;
+    -webkit-border-radius: 0;
+    background-color: transparent;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    padding-left: 0;
+    font-size: 15.5px; 
+}
+
+
+.form-buttons{
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+}
+
+.buttons-flex{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.form-buttons .back-link a{
+    padding: 10px 40px 10px 40px;
+    background-color: #00000033;
+    margin-right: auto;
+    text-decoration: none;
+    color: black;
+}
+
+.form-buttons .submit-button{
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-buttons .submit-button button{
+    padding: 10px 40px 8px 40px;
+    background-color: #0067bb;
+    margin-right: auto;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    border: thin solid #00000033;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-in-options{
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: calc(100% - 40px);
+    padding: 10px 44px;
+    background-color: #fff;
+    overflow: hidden;
+    min-width: 320px;
+    max-width: 440px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.options-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.key-icon{
+    width: 35px;
+    height: 35px;
+}
+
+.key-icon img{
+    height: 100%;
+}
+
+@media (min-width: 600px){
+    body{
+        background-image: url('../images/bg.png');
+        background-size: cover;
+        background-repeat: repeat;
+    }
+    .middle{
+        text-align: center;
+    }
+    .container{
+        margin-top: 10%;
+    }
+    .sign-in-form, .sign-in-options{
+        -webkit-box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+        -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+    }
+}
+
+
+@media (max-width: 600px){
+    .sign-in-form{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 25px;
+    }
+    .sign-in-options{
+        box-sizing: border-box;
+        border: thin solid grey;
+        height: 42px;
+      width: 85%;
+    }
+    .options-wrapper{
+
+        box-sizing: border-box;
+        padding: 15px;
+        height: 45%;
+    }
+    .form-buttons .submit-button button, .form-buttons .back-link a{
+        border-radius: 5px;
+        height: 30px;
+    }
+    .form-buttons .back-link a{
+        padding: 7px 34px 7px 34px;
+        font-size: 14px;
+    }
+    .form-buttons .submit-button button{
+        padding: 8px 34px 8px 34px;
+        font-size: 14px;
+    }
+}
